@@ -1,0 +1,208 @@
+:root {
+    --bg-color: #101114;
+    --btn-color: #0a2fa9;
+    --card-color: #26272c;
+    --column-color: #363738;
+    --del-btn-color: #9d2121;
+    --text-color: #f0f0f2;
+
+    /* Padding Variables */
+    --nav-pd:1rem 2rem;
+    --section-pd:1rem 2rem;
+    --padding-sm:5px;
+    --padding-md:10px;
+    --padding-lg:15px;
+    --padding-xl:20px;
+    --padding-2xl:25px;
+    --padding-3xl:30px;
+
+    /* border radius */
+    --br-sm:5px;
+    --br-md:10px;
+    --br-lg:15px;
+    --br-xl:20px;
+    --br-2xl:25px;
+    --br-3xl:30px;
+
+    /* gap */
+    --gap-sm:5px;
+    --gap-md:10px;
+    --gap-lg:15px;
+    --gap-xl:20px;
+    --gap-2xl:25px;
+    --gap-3xl:30px;
+}
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   list-style: none;
+   text-decoration: none;
+}
+
+body {
+   min-height: 100vh;
+   width: 100%;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   background-color: var(--bg-color);
+   color: var(--text-color);
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    padding: var(--nav-pd);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(5px);
+}
+
+nav button {
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border: none;
+    padding: var(--padding-sm) var(--padding-md);
+    border-radius: var(--br-sm);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+
+section {
+    flex-grow: 1;
+    padding: var(--section-pd);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap-2xl);
+}
+
+.columns {
+    flex-grow: 1;
+    width: 100%;
+    background-color: var(--column-color);
+    border-radius: var(--br-lg);
+    padding: var(--padding-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3xl);
+    transition: all 0.5s ease;
+}
+
+.hover {
+    border: 2px dashed var(--text-color);
+    scale: 1.02;
+}
+
+.columns .header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.card {
+    background-color: var(--card-color);
+    padding: var(--padding-lg);
+    border-radius: var(--br-md);
+    cursor: grab;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--gap-md);
+}
+
+.card button {
+    cursor: pointer;
+    align-self: flex-end;
+    color: var(--text-color);
+    border: none;
+    padding: var(--padding-sm) var(--padding-md);
+    border-radius: var(--br-sm);
+    font-weight: bold;
+}
+
+.del-btn {
+    background-color: var(--del-btn-color);
+}
+
+.modal {
+    height: 100vh;
+    width: 100vw;    
+    position: fixed;
+    top: 0;
+    left:0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(58, 58, 58, 0.326);
+    backdrop-filter: blur(3px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.center {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: var(--br-md);
+    padding: var(--padding-lg);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+    z-index:10;
+}
+
+.modal input, .modal textarea{
+    padding: var(--padding-sm) var(--padding-md);
+    outline: none;
+    background-color: var(--card-color);
+    border-radius: var(--br-sm);
+    border: none;
+    resize: none;
+    color: var(--text-color);
+}
+
+.modal textarea {
+    min-height: 80px;
+}
+
+.modal .button {
+    display: flex;
+    gap: var(--gap-md);
+    justify-content: space-between;
+}
+
+.modal button {
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border: none;
+    padding: var(--padding-sm) var(--padding-md);
+    border-radius: var(--br-sm);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.modal .cancel-btn {
+    background-color: var(--del-btn-color);
+}
